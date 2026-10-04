@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RANZ Phone Repair</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033;line-height:1.5}
+header{background:#101828;color:white;position:sticky;top:0;z-index:10;box-shadow:0 3px 15px #0002}
+nav{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:22px;font-weight:800;color:#67e8f9}.logo span{color:white}
+nav a{color:#dbe4f0;text-decoration:none;margin-left:20px;font-size:14px}
+.hero{background:linear-gradient(135deg,#101828,#123d5a);color:white;padding:70px 20px}
+.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:35px;align-items:center}
+.badge{display:inline-block;background:#67e8f922;border:1px solid #67e8f955;color:#a5f3fc;padding:7px 12px;border-radius:20px;font-size:13px;margin-bottom:15px}
+h1{font-size:48px;line-height:1.1;margin-bottom:18px}
+.hero p{color:#c9d5e3;max-width:620px}
+.btn{display:inline-block;border:0;border-radius:10px;padding:13px 18px;background:#06b6d4;color:white;font-weight:700;text-decoration:none;cursor:pointer;margin-top:22px}
+.hero-card{background:#ffffff12;border:1px solid #ffffff22;padding:24px;border-radius:18px;backdrop-filter:blur(8px)}
+.hero-card strong{font-size:30px;display:block;color:#67e8f9}
+section{max-width:1100px;margin:auto;padding:55px 20px}
+.section-title{text-align:center;margin-bottom:28px}
+.section-title h2{font-size:30px}
+.section-title p{color:#667085;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:white;border:1px solid #e4e7ec;border-radius:15px;padding:20px;box-shadow:0 5px 18px #1018280a}
+.service{cursor:pointer;transition:.2s}
+.service:hover{transform:translateY(-3px);border-color:#06b6d4}
+.service .icon{font-size:30px;margin-bottom:8px}.service h3{font-size:17px}.service p{font-size:13px;color:#667085;margin-top:5px}
+.booking{background:white;border-radius:20px;padding:28px;box-shadow:0 10px 30px #10182812;border:1px solid #e4e7ec}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-weight:700;font-size:14px;display:block;margin-bottom:6px}
+input,select{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:9px;font-size:14px;background:white}
+.full{grid-column:1/-1}
+.techs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.tech{border:2px solid #e4e7ec;border-radius:12px;padding:15px;cursor:pointer}
+.tech.selected{border-color:#06b6d4;background:#ecfeff}
+.tech b{display:block}.tech small{color:#667085}
+.summary{margin-top:20px;background:#f8fafc;border-radius:12px;padding:18px}
+.price{font-size:26px;font-weight:800;color:#0891b2}
+footer{background:#101828;color:#aebdce;text-align:center;padding:30px 20px;margin-top:20px}
+@media(max-width:800px){.hero-inner{grid-template-columns:1fr}h1{font-size:38px}.grid{grid-template-columns:1fr 1fr}.techs{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}nav a{display:none}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">RANZ <span>PHONE REPAIR</span></div>
+<div><a href="#layanan">Layanan</a><a href="#booking">Booking</a><a href="#teknisi">Teknisi</a></div>
+</nav>
+</header>
+
+<div class="hero">
+<div class="hero-inner">
+<div>
+<span class="badge">SERVIS HP • CEPAT • TRANSPARAN</span>
+<h1>HP Bermasalah?<br>Kami Perbaiki.</h1>
+<p>Pesan servis HP dengan memilih jenis kerusakan, merek perangkat, layanan, dan teknisi sesuai kebutuhanmu.</p>
+<a class="btn" href="#booking">Pesan Servis Sekarang</a>
+</div>
+<div class="hero-card">
+<strong>100%</strong>
+<p>Estimasi transparan sebelum pengerjaan</p><br>
+<strong>7+ Tahun</strong>
+<p>Pengalaman teknisi</p>
+</div>
+</div>
+</div>
+
+<section id="layanan">
+<div class="section-title"><h2>Layanan Perbaikan</h2><p>Pilih masalah HP yang ingin diperbaiki.</p></div>
+<div class="grid">
+<div class="card service" onclick="chooseService('Mati Total')"><div class="icon">⚡</div><h3>Mati Total — Custom ROM</h3><p>HP mati total setelah pemasangan atau kegagalan Custom ROM.</p></div>
+<div class="card service" onclick="chooseService('LCD / Touchscreen')"><div class="icon">📱</div><h3>LCD / Touchscreen</h3><p>Layar pecah, blank, atau touch error.</p></div>
+<div class="card service" onclick="chooseService('Baterai')"><div class="icon">🔋</div><h3>Baterai</h3><p>Boros, drop, atau tidak mengisi.</p></div>
+<div class="card service" onclick="chooseService('Charging')"><div class="icon">🔌</div><h3>Charging</h3><p>Tidak bisa mengisi atau konektor rusak.</p></div>
+<div class="card service" onclick="chooseService('Bootloop / Software')"><div class="icon">🔄</div><h3>Bootloop / Software</h3><p>Stuck logo, error sistem, atau software.</p></div>
+<div class="card service" onclick="chooseService('Kamera')"><div class="icon">📷</div><h3>Kamera</h3><p>Kamera blur, error, atau tidak terbuka.</p></div>
+<div class="card service" onclick="chooseService('Speaker / Mic')"><div class="icon">🔊</div><h3>Speaker / Mic</h3><p>Suara kecil, tidak keluar, atau mic error.</p></div>
+<div class="card service" onclick="chooseService('Lainnya')"><div class="icon">🛠️</div><h3>Kerusakan Lainnya</h3><p>Konsultasikan masalah HP kamu.</p></div>
+</div>
+</section>
+
+<section id="teknisi">
+<div class="section-title"><h2>Customize Teknisi</h2><p>Pilih teknisi sesuai kebutuhan servis.</p></div>
+<div class="techs">
+<div class="tech selected" onclick="selectTech(this,'RANZ — Hardware Specialist')"><b>RANZ — Hardware Specialist</b><small>Board, mati total & power • ★ 4.9</small></div>
+<div class="tech" onclick="selectTech(this,'Dika — Software Specialist')"><b>Dika — Software Specialist</b><small>Bootloop, firmware & software • ★ 4.8</small></div>
+<div class="tech" onclick="selectTech(this,'Fajar — General Technician')"><b>Fajar — General Technician</b><small>LCD, baterai & charging • ★ 4.7</small></div>
+</div>
+</section>
+
+<section id="booking">
+<div class="section-title"><h2>Booking Servis</h2><p>Isi data berikut untuk membuat estimasi.</p></div>
+<div class="booking">
+<div class="form-grid">
+<div><label>Nama</label><input id="nama" placeholder="Nama kamu"></div>
+<div><label>No. WhatsApp</label><input id="wa" placeholder="08xxxxxxxxxx"></div>
+<div><label>Merek HP</label><select id="merek"><option>Xiaomi / POCO</option><option>Samsung</option><option>Vivo</option><option>OPPO</option><option>iPhone</option><option>Infinix</option><option>Tecno</option><option>Realme</option><option>Lainnya</option></select></div>
+<div><label>Model HP</label><input id="model" placeholder="Contoh: POCO X7 Pro"></div>
+<div class="full"><label>Jenis Kerusakan</label><select id="kerusakan" onchange="updatePrice()">
+<option>Mati Total — Custom ROM</option><option>LCD / Touchscreen</option><option>Baterai</option><option>Charging</option><option>Bootloop / Software</option><option>Kamera</option><option>Speaker / Mic</option><option>Lainnya</option>
+</select></div>
+<div class="full"><label>Catatan Kerusakan</label><input id="catatan" placeholder="Contoh: tiba-tiba mati setelah dicas"></div>
+</div>
+<div class="summary">
+<p>Teknisi: <b id="techName">RANZ — Hardware Specialist</b></p>
+<p>Layanan: <b id="serviceName">Mati Total</b></p>
+<p>Estimasi mulai dari</p>
+<div class="price" id="price">Rp150.000</div>
+<small>*Harga final ditentukan setelah pemeriksaan perangkat.</small><br>
+<button class="btn" onclick="booking()">Kirim Booking via WhatsApp</button>
+</div>
+</div>
+</section>
+
+<footer>© 2026 RANZ Phone Repair • Servis HP Profesional & Transparan</footer>
+
+<script>
+let technician='RANZ — Hardware Specialist';
+const prices={'Mati Total — Custom ROM':150000,'LCD / Touchscreen':250000,'Baterai':120000,'Charging':100000,'Bootloop / Software':80000,'Kamera':150000,'Speaker / Mic':100000,'Lainnya':75000};
+function chooseService(s){document.getElementById('kerusakan').value=s;document.getElementById('serviceName').textContent=s;updatePrice();document.getElementById('booking').scrollIntoView({behavior:'smooth'})}
+function updatePrice(){let s=document.getElementById('kerusakan').value;document.getElementById('serviceName').textContent=s;document.getElementById('price').textContent='Rp'+prices[s].toLocaleString('id-ID')}
+function selectTech(el,name){document.querySelectorAll('.tech').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');technician=name;document.getElementById('techName').textContent=name}
+function booking(){
+let nama=document.getElementById('nama').value||'-',wa=document.getElementById('wa').value||'-',merek=document.getElementById('merek').value,model=document.getElementById('model').value||'-',rusak=document.getElementById('kerusakan').value,cat=document.getElementById('catatan').value||'-';
+let text=`Halo RANZ Phone Repair, saya ingin booking servis.%0A%0ANama: ${nama}%0AWA: ${wa}%0AHP: ${merek} ${model}%0AKerusakan: ${rusak}%0ATeknisi: ${technician}%0ACatatan: ${cat}`;
+window.open('https://wa.me/628561921015?text='+text,'_blank');
+}
+updatePrice();
+</script>
+</body>
+</html>
